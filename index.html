@@ -6,27 +6,47 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
     <title>德采有限公司 - Virtuefun Company Ltd.</title>
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/index.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/swiper@5.3.6/css/swiper.min.css" rel="stylesheet" />
   </head>
   <body>
     <div id="app">
       <section
-        class="header h-36 w-screen"
+        class="
+          header
+          h-36
+          w-screen
+          inset-0
+          flex flex-row
+          justify-between
+          items-end
+          px-44
+        "
         :class="{ changeBg: scrollPosition > 0 }"
       >
-        <img class="logo relative" src="assets/img/logo.png" />
-        <div class="nav-bar relative">
-          <span>Home</span><span>Service</span><span>Experience</span
-          ><span>Contact Us{{msg}}</span>
+        <img class="logo relative max-w-xs mb-5" src="assets/img/logo.png" />
+        <div class="nav-bar relative mb-2">
+          <span class="nav-item relative mr-12 cursor-pointer py-3.5">Home</span>
+          <span class="nav-item relative mr-12 cursor-pointer py-3.5">Service</span>
+          <span class="nav-item relative mr-12 cursor-pointer py-3.5">Experience</span>
+          <span class="nav-item relative mr-12 cursor-pointer py-3.5">Contact Us</span>
         </div>
       </section>
 
-      <section class="slider h-full w-screen">
-        <img class="h-auto w-screen" src="assets/img/slider-1.jpg" alt="" />
+      <section class="slider h-5/6 w-full">
+        <swiper ref="swiperComponent" :options="swiperOptions">
+          <swiper-slide v-for="(item, idx) in swiperData" :key="item.title" class="swiper-slide">
+            <img :src="`/assets/img/slider-${idx + 1}.jpg`" />
+            <section class="swiper-content">
+              <div class="title">{{ item.title }}</div>
+              <div class="subtitle">{{ item.subtitle }}</div>
+              <div v-for="p in item.desc" :key="p" class="desc">{{ p }}</div>
+            </section>
+          </swiper-slide>
+          <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
+        </swiper>
       </section>
 
       <section class="footer">
@@ -37,16 +57,55 @@
       </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Swiper library -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@5.3.6/js/swiper.min.js"></script>
+    <!-- Vue library -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- vue-awesome-swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-awesome-swiper"></script>
   </body>
 </html>
 
 <script>
+  Vue.use(VueAwesomeSwiper)
   new Vue({
     el: "#app",
     data: {
-      msg: "hi",
       scrollPosition: null,
+      swiperOptions: {
+        loop: true,
+        autoplay: {
+          disableOnInteraction: false,
+          delay: 3500,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      },
+      swiperData: [
+        {
+          title: "專業技術團隊",
+          subtitle: "Expert Team",
+          desc: [
+            "我們提供您的企業或生意最佳的解決方案",
+            "為您建構和部屬您的軟體服務或者創造新的生意",
+          ],
+        },
+        {
+          title: "持續招募菁英",
+          subtitle: "We are recruiting talents",
+          desc: [
+            "歡迎更多研發與設計菁英的加入",
+            "讓別人看見自己的價值從加入我們開始",
+          ],
+        },
+        {
+          title: "關於德采",
+          subtitle: "About Virtuefun",
+          desc: ["我們創建於2021年9月", "雖然創新但這裡聚集著菁英"],
+        },
+      ],
     },
     mounted() {
       if (window.scrollY > 0) this.scrollPosition = 1;

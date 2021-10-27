@@ -1,28 +1,103 @@
 .header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   z-index: 1000;
 }
 .header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(86deg, #49c5f4 0%, #35399e 100%);
-    opacity: 0;
-    transition: 0.3s;
-    z-index: 900;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(86deg, #49c5f4 0%, #35399e 100%);
+  opacity: 0;
+  transition: 0.3s;
+  z-index: 900;
 }
 .header.changeBg::before {
-    opacity: 1;
+  opacity: 1;
 }
 
-.logo, .nav-bar {
+.logo,
+.nav-bar {
   z-index: 1000;
+}
+
+.nav-bar .nav-item {
+  font-family: Optima;
+  font-size: 24px;
+  color: #fff;
+}
+
+.nav-bar .nav-item:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  transition: all 0.5s;
+}
+.nav-bar .nav-item:hover:after {
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #42c9be, #acc31b);
+  transform: translateY(-20%);
+  border-radius: 5px;
+}
+
+.swiper-pagination {
+  bottom: 4%;
+}
+.swiper-pagination .swiper-pagination-bullet {
+  height: 4px;
+  width: 72px;
+  border-radius: 0;
+  margin: 0 6px;
+  background-color: #fff;
+}
+
+.swiper-slide {
+  position: relative;
+}
+.swiper-slide img {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  padding-left: 36px;
+  font-family: NotoSansTC;
+  color: #fff;
+}
+
+.swiper-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(to top, #42c9be 4%, #acc31b 88%);
+  text-shadow: 1px 1px #000;
+}
+.swiper-content .title {
+  font-size: 80px;
+  margin-bottom: 8px;
+}
+.swiper-content .subtitle {
+  font-size: 60px;
+  font-weight: 300;
+  margin-bottom: 64px;
+}
+.swiper-content .desc {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 48px;
 }
