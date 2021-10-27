@@ -19,6 +19,10 @@
     transition: 0.3s;
     z-index: 900;
 }
-/* .header.changeBg::before {
+.header.changeBg::before {
     opacity: 1;
-} */
+}
+
+.logo, .nav-bar {
+  z-index: 1000;
+}
