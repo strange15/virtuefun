@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>德采有限公司 - Virtuefun Company Ltd.</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section
+        class="header h-36 w-screen"
+        :class="{ changeBg: scrollPosition > 0 }"
+      >
+        <img class="logo" src="assets/img/logo.png" />
+        <div class="nav-bar">
+          <span>Home</span><span>Service</span><span>Experience</span
+          ><span>Contact Us{{msg}}</span>
+        </div>
+      </section>
+
+      <section class="slider h-full w-screen">
+        <img class="h-auto w-screen" src="assets/img/slider-1.jpg" alt="" />
+      </section>
+
+      <section class="footer">
+        <div class="logo"><img src="assets/img/logo.png" alt="logo" /></div>
+        <p class="copyright">
+          ©2021 Virtuefun Company Ltd., All Rights Reserved.
+        </p>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  </body>
+</html>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      msg: "hi",
+      scrollPosition: null,
+    },
+    mounted() {
+      if (window.scrollY > 0) this.scrollPosition = 1;
+      setTimeout(this.observeScrollPosition(), 1000);
+    },
+    methods: {
+      observeScrollPosition() {
+        window.addEventListener("scroll", () => {
+          this.scrollPosition = window.scrollY;
+        });
+      },
+    },
+  });
+</script>
