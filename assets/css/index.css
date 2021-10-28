@@ -101,3 +101,40 @@
   font-weight: 300;
   line-height: 48px;
 }
+
+.service {
+  background: #333;  
+}
+
+.underline {
+  margin: auto;
+  width: 250px;
+  height: 5px;
+  background: linear-gradient(270deg, #42c9be 78%, #acc31b);
+}
+
+.service-content {
+  display: grid;
+  grid-template-columns: 23rem 23rem 23rem;
+  grid-template-rows: 20rem 20rem;
+  grid-gap: 1rem;
+  justify-content: center;
+  width: 80%;
+}
+
+.service-content .service-icon {
+  width: 128px;
+  height: 128px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #979797;
+  border-radius: 50%;
+}
+.service-content .service-icon img {
+  width: 56px;
+  height: 56px;
+}
+.service-content .service-desc {
+  line-height: 36px;
+}

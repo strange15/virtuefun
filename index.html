@@ -35,7 +35,7 @@
         </div>
       </section>
 
-      <section class="slider h-5/6 w-full">
+      <section class="slider">
         <swiper ref="swiperComponent" :options="swiperOptions">
           <swiper-slide v-for="(item, idx) in swiperData" :key="item.title" class="swiper-slide">
             <img :src="`/assets/img/slider-${idx + 1}.jpg`" />
@@ -48,6 +48,31 @@
           <div class="swiper-pagination swiper-pagination-bullets" slot="pagination"></div>
         </swiper>
       </section>
+
+      <seciton class="service w-screen h-auto py-10 flex flex-col justify-around items-center">
+        <div class="service-title flex-col justify-center my-8">
+          <div class="text-center title-big text-7xl text-white">出色的服務</div>
+          <div class="text-center text-6xl text-blue-400 my-4">SERVICE ITEMS</div>
+          <div class="underline"></div>
+        </div>
+        <div class="service-content mt-8">
+          <div class="flex flex-col justify-start items-center" v-for="(item, index) in serviceData">
+            <div class="service-icon">
+              <img :src="`assets/img/service-${item.icon}.png`">
+            </div>
+            <div class="title text-5xl text-blue-400 my-5">{{ item.title }}</div>
+            <div v-for="dec in item.desc" class="service-desc text-2xl text-gray-300">{{ dec }}</div>
+          </div>
+        </div>
+      </seciton>
+
+      <!-- 您成功的後盾 -->
+
+      <!-- 高質量服務與成果 -->
+
+      <!-- Experience -->
+
+      <!-- Contact Us  -->
 
       <section class="footer">
         <div class="logo"><img src="assets/img/logo.png" alt="logo" /></div>
@@ -106,6 +131,38 @@
           desc: ["我們創建於2021年9月", "雖然創新但這裡聚集著菁英"],
         },
       ],
+      serviceData: [
+        {
+          icon: 'solution',
+          title: '分析解決方案',
+          desc: ['提供專人服務分析需求','與提供建議']
+        },
+        {
+          icon: 'risk',
+          title: '風險管理',
+          desc: ['全方位的服務']
+        },
+        {
+          icon: 'plan',
+          title: '商業計畫',
+          desc: ['根據需求制定符合商業計畫','的解決方案']
+        },
+        {
+          icon: 'time',
+          title: '省時省力',
+          desc: ['由專門的項目經理服務專案','時程化繁為簡']
+        },
+        {
+          icon: 'ensure',
+          title: '品質保證',
+          desc: ['專業把關所有環節','鉅細彌遺完全掌握']
+        },
+        {
+          icon: 'secret',
+          title: '安全保密',
+          desc: ['嚴格控管商業機密','安心有保障']
+        },
+      ]
     },
     mounted() {
       if (window.scrollY > 0) this.scrollPosition = 1;
