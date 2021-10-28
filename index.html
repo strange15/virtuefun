@@ -92,12 +92,27 @@
       </section>
 
       <!-- Experience -->
+      <section class="experience bg-white w-screen h-screen py-10 flex flex-col items-center">
+        <div class="flex-col justify-center my-8">
+          <div class="text-center text-7xl text-gray-800">更好的體驗</div>
+          <div class="text-center text-6xl text-indigo-900 my-4">通過我們的解決方案得到更好的體驗</div>
+          <div class="underline"></div>
+        </div>
+        <div class="max-w-screen-xl flex flex-row justify-between items-center">
+          <span class="" v-for="item in experienceData" :key="item">
+            <img class="w-96 h-auto" :src="`assets/img/experince-${item}.png`">
+          </span>
+
+        </div>
+      </section>
 
       <!-- Contact Us  -->
 
-      <section class="footer">
-        <div class="logo"><img src="assets/img/logo.png" alt="logo" /></div>
-        <p class="copyright">
+      <section class="footer w-screen h-32 flex flex-row justify-center items-center">
+        <div class="logo w-60 h-auto">
+          <img class="w-full" src="assets/img/logo.png" alt="logo" />
+        </div>
+        <p class="copyright text-xl text-black text-white font-light ml-6">
           ©2021 Virtuefun Company Ltd., All Rights Reserved.
         </p>
       </section>
@@ -209,7 +224,8 @@
           title: '成功案例',
           desc: ['實戰經驗豐富，','各式問題迎刃而解，','深受信賴。']
         },
-      ]
+      ],
+      experienceData: ['solution', 'apex', 'better']
     },
     mounted() {
       if (window.scrollY > 0) this.scrollPosition = 1;
