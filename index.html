@@ -11,19 +11,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/swiper@5.3.6/css/swiper.min.css" rel="stylesheet" />
   </head>
-  <body>
+  <body class="bg-gray-200">
     <div id="app">
       <section
-        class="
-          header
-          h-36
-          w-screen
-          inset-0
-          flex flex-row
-          justify-between
-          items-end
-          px-44
-        "
+        class="header h-36 w-screen inset-0 flex flex-row justify-between items-end px-44"
         :class="{ changeBg: scrollPosition > 0 }"
       >
         <img class="logo relative max-w-xs mb-5" src="assets/img/logo.png" />
@@ -49,14 +40,14 @@
         </swiper>
       </section>
 
-      <seciton class="service w-screen h-auto py-10 flex flex-col justify-around items-center">
+      <section class="service w-screen h-auto py-10 flex flex-col justify-around items-center">
         <div class="service-title flex-col justify-center my-8">
-          <div class="text-center title-big text-7xl text-white">出色的服務</div>
+          <div class="text-center text-7xl text-white">出色的服務</div>
           <div class="text-center text-6xl text-blue-400 my-4">SERVICE ITEMS</div>
           <div class="underline"></div>
         </div>
         <div class="service-content mt-8">
-          <div class="flex flex-col justify-start items-center" v-for="(item, index) in serviceData">
+          <div class="flex flex-col justify-start items-center" v-for="item in serviceData">
             <div class="service-icon">
               <img :src="`assets/img/service-${item.icon}.png`">
             </div>
@@ -64,11 +55,41 @@
             <div v-for="dec in item.desc" class="service-desc text-2xl text-gray-300">{{ dec }}</div>
           </div>
         </div>
-      </seciton>
+      </section>
 
-      <!-- 您成功的後盾 -->
+      <section class="business w-screen h-auto py-10 flex flex-col justify-around items-center">
+        <div class="business-title flex-col justify-center my-8">
+          <div class="text-center text-7xl text-white">您成功的後盾</div>
+          <div class="text-center text-6xl text-blue-400 my-4">WE SUPPORT YOUR BUSINESS</div>
+          <div class="underline"></div>
+        </div>
+        <div class="business-content my-10">
+          <div class="business-item relative flex flex-col justify-start items-center"
+               v-for="item in businessData">
+            <img class="business-icon absolute top-0 right-0" :src="`assets/img/business-${item.icon}.png`">
+            <div class="title mt-6 mb-4 mr-12 text-9xl text-white font-black">{{ item.count }}</div>
+            <div class="title text-5xl text-white mt-5 mb-16 mr-9 font-light">{{ item.title }}</div>
+            <div v-for="dec in item.desc" class="business-desc text-center text-2xl text-white font-light">{{ dec }}</div>
+          </div>
+        </div>
+        <div class="iso-desc mt-28 mb-16">
+          <p class="text-2xl text-white font-light">由最好的菁英顧問與開發人員，為用戶和企業帶來微笑。</p>
+          <p class="text-2xl text-white font-light">輕鬆解決所有棘手的技術問題，確保解決方案的可用性。</p>
+        </div>
+      </section>
 
       <!-- 高質量服務與成果 -->
+      <section class="provide w-screen h-screen flex flex-col justify-end items-end pb-16 pr-40 relative">
+        <div class="business-title flex-col justify-center my-8">
+          <div class="text-right font-normal text-6xl text-white">高質量服務與成果</div>
+          <div class="text-right font-light text-5xl text-blue-400 mt-8">PROVIDE BETTER EXPERIENCES</div>
+        </div>
+        <div class="provide-desc mt-20 mb-16">
+          <p class="text-2xl text-right text-white font-light">專業的團隊為用戶提供最好的服務，</p>
+          <p class="text-2xl text-right text-white font-light">主動把關每一個環節。</p>
+        </div>
+        <div class="color-block"></div>
+      </section>
 
       <!-- Experience -->
 
@@ -161,6 +182,32 @@
           icon: 'secret',
           title: '安全保密',
           desc: ['嚴格控管商業機密','安心有保障']
+        },
+      ],
+      businessData: [
+        {
+          icon: 'plus',
+          count: '120',
+          title: '受惠客戶',
+          desc: ['提出並完成解決方案，消除阻礙人們工作的障礙，推動您的成功。']
+        },
+        {
+          icon: 'percent',
+          count: '99',
+          title: '效率提升',
+          desc: ['我們提升了所有工作上的效率，大幅減少您成功所需要的成本與時間。']
+        },
+        {
+          icon: 'degrees',
+          count: '360',
+          title: '全方位',
+          desc: ['針對各行各業獨特視角的','專案計畫，','量身打造最佳方案。']
+        },
+        {
+          icon: 'check',
+          count: '600',
+          title: '成功案例',
+          desc: ['實戰經驗豐富，','各式問題迎刃而解，','深受信賴。']
         },
       ]
     },

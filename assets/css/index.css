@@ -103,7 +103,7 @@
 }
 
 .service {
-  background: #333;  
+  background: #333;
 }
 
 .underline {
@@ -137,4 +137,53 @@
 }
 .service-content .service-desc {
   line-height: 36px;
+}
+
+.business {
+  background: #020e22;
+}
+
+.business .business-content {
+  display: grid;
+  grid-auto-columns: 17rem;
+  grid-auto-flow: column;
+  grid-gap: 4rem;
+  justify-content: center;
+  width: 73%;
+}
+
+.business .business-content .title {
+  font-family: Roboto;
+}
+
+.business .business-item::before,
+.business .business-item::after {
+  content: "";
+  background-color: #979797;
+  position: absolute;
+}
+.business .business-item::before {
+  /* 直線 */
+  width: 1px;
+  height: 160px;
+  top: 104px;
+  right: 32px;
+}
+.business .business-item::after {
+  /* 橫線 */
+  height: 1px;
+  width: 100%;
+  top: 250px;
+}
+
+.provide {
+  background: url(/assets/img/provide-bg.jpg) no-repeat center;
+}
+.provide .color-block {
+  position: absolute;
+  top: 744px;
+  left: 0;
+  width: 78px;
+  height: 26px;
+  background: linear-gradient(74deg, #42c9be -99%, #acc31b);
 }
