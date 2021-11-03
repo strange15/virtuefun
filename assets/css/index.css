@@ -188,7 +188,13 @@
   background: linear-gradient(74deg, #42c9be -99%, #acc31b);
 }
 
-
+.contact-eng-title {
+  font-family: NotoSansTC;
+  background: linear-gradient(79deg, #42c9be 0%, #acc31b 99%);
+  background: -webkit-linear-gradient(79deg, #42c9be 0%, #acc31b 99%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
 
 .footer {
   background: linear-gradient(87deg,#49c5f4,#35399e);
